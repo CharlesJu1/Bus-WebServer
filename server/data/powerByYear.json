@@ -1,0 +1,8 @@
+
+{
+   "labels": [{"type": "string", "label": "Year"}, 
+              {"type": "number", "label": "Power Production"},
+			  {"type": "number", "label": "Expense"}],
+   "data": [["2014", 2000, 600],
+            ["2015", 3200, 800]]
+}

@@ -1,0 +1,7 @@
+{
+  "runningStatus": [
+     { "status" : "normal", "count" : 30 },
+     { "status" : "warning", "count" : 10 },
+     { "status" : "critical", "count" : 15 }
+  ]
+}

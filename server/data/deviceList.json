@@ -1,0 +1,9 @@
+[
+     { "id": 1, "area" : "ZH", "status" : "normal", "count" : 30 },
+     { "id": 2, "area" : "ZH", "status" : "warnning", "count" : 10 },
+     { "id": 3, "area" : "ZH", "status" : "critical", "count" : 15 },
+     { "id": 4, "area" : "SZ", "status" : "normal", "count" : 30 },
+     { "id": 5, "area" : "SZ", "status" : "warnning", "count" : 10 },
+     { "id": 6, "area" : "SZ", "status" : "critical", "count" : 15 }
+]
+

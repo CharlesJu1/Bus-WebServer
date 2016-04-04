@@ -1,0 +1,8 @@
+
+{
+   "labels": [{"type": "string", "label": "Area"}, 
+              {"type": "number", "label": "Power Production"},
+			  {"type": "number", "label": "Expense"}],
+   "data": [["ZH", 3000, 400],
+            ["SZ", 5200, 500]]
+}
