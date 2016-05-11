@@ -16,13 +16,12 @@ var bus = require('../models/busModel');
 //   });
 // });
 
-console.log('bus xxxxxxxx' + JSON.stringify(bus));
+//console.log('bus xxxxxxxx' + JSON.stringify(bus));
 
-router.post('/location', function(req, res) {
-  console.log('post /api/bus/location' + JSON.stringify(bus));
-  console.log('body in req' + JSON.stringify(req.body));
-  bus.addBusRoute(req.body, function(err, result) {
-    console.log("addBusRoute callback");
+router.post('/position', function(req, res) {
+  console.log('post /api/bus/position, body in req' + JSON.stringify(req.body));
+  bus.updateBusPosition(req.body, function(err, result) {
+    console.log("updateBusPosition callback");
     if (err) {
       res.status(500).send(err.message);
     }
@@ -32,10 +31,9 @@ router.post('/location', function(req, res) {
   });
 });
 
-router.post('/routes', function(req, res) {
-  console.log('busController.js: router.post: post /api/bus/routes' + JSON.stringify(req.body));
+router.post('/route', function(req, res) {
+  console.log('busController.js: router.post: post /api/bus/route' + JSON.stringify(req.body));
   console.log('body in req' + JSON.stringify(req.body));
-  //res.status(201).send('{ "result": "is good" }');
   bus.addBusRoute(req.body, function(err, result) {
     console.log("addBusRoute callback");
     if (err) {

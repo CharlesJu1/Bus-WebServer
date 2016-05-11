@@ -13,6 +13,7 @@ else {
   //cfg.mongoDbUrl = 'mongodb://nodejsclient:nodejsclient@ds052968.mlab.com:52968/WMillMongoDB';
 	cfg.mongoDbBusUrl = 'mongodb://localhost:27017/bus';
 }
-cfg.busRouteCollection = 'routes';
+cfg.busRouteCollection = 'route';
+cfg.busPositionCollection = 'position';
 
 module.exports = cfg;
