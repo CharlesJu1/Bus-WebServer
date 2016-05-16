@@ -3,7 +3,7 @@ var cfg = require('../../config');
 
 
 // Client sends JSON string to Node.js server. Node.js bodyParser parses the JSON string into JSON oject.
-// Server and client need to agree on busRoute definition.
+// Server and client need to agree on busRoute definition.  
 
 module.exports.getBusRoute = function(query, callback) {
   var collection = global.mongoDb.collection(cfg.busRouteCollection);
@@ -41,7 +41,7 @@ module.exports.addBusRoute = function(busRoute, callback) {
 module.exports.updateBusPosition = function(busPosition, callback) {
   var filter = {};
 
-  //setup busRoute filter
+  //setup busRoute filter. Only filter on plate.
   filter.plate = busPosition.plate;
   console.log("updating mongodb bus position collection" + JSON.stringify(cfg.busPositionCollection));
   var collection = global.mongoDb.collection(cfg.busPositionCollection);

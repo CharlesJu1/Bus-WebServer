@@ -1,8 +1,6 @@
 'use strict';
 var express = require('express');
 var util = require('util');
-var morgan = require('morgan'); //http request logger middleware
-
 var cors = require('cors');
 var corsOptions = { 
 	origin: true
@@ -17,7 +15,9 @@ var cfg = require('./config');
 
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io')(server);
+
+// global.io is used in busController.js
+global.io = require('socket.io')(server);
 
 var url = cfg.mongoDbBusUrl;
 var mongoDb = '';
@@ -62,9 +62,6 @@ function startWebServer() {
     extended: true
   }));
   
-  // Need to do logging 
-  // app.use(morgan('dev', {immediate: true}));
-
 	app.get('/', function (req, res) {
 	    res.send('this is /');
 	});
