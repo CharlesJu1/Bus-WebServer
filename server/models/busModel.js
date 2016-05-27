@@ -1,5 +1,5 @@
 'use strict';
-var cfg = require('../../config');
+var cfg = require('../../serverSetting');
 
 
 // Client sends JSON string to Node.js server. Node.js bodyParser parses the JSON string into JSON oject.

@@ -11,7 +11,7 @@ var busCtl = require('./server/controllers/busController');
 var mongoClient = require('mongodb').MongoClient;
 
 // config of mongoDb url
-var cfg = require('./config');
+var cfg = require('./serverSetting');
 
 var app = express();
 var server = require('http').Server(app);
@@ -21,6 +21,8 @@ global.io = require('socket.io')(server);
 
 var url = cfg.mongoDbBusUrl;
 var mongoDb = '';
+
+console.log('url= ' + url);
 
 // this function is called when you want the server to die gracefully
 // i.e. wait for existing connections
