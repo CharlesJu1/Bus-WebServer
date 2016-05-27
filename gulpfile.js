@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 
 // cju added preprocess tasks
-// run 'gulp dev' before 'ionic run' to set the dev environment
+// run 'gulp dev' before 'node server.js' to set the dev environment
 var preprocess = require('gulp-preprocess');
 gulp.task('dev', function() {
   gulp.src('server/templates/serverSetting.js')
