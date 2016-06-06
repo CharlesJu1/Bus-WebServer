@@ -3,7 +3,7 @@ var express = require('express');
 var util = require('util');
 var cors = require('cors');
 var corsOptions = { 
-	origin: true
+  origin: true
 };
 
 var bodyParser = require('body-parser');
@@ -64,24 +64,25 @@ function startWebServer() {
     extended: true
   }));
   
-	app.get('/', function (req, res) {
-	    res.send('this is /');
-	});
+  app.get('/', function (req, res) {
+      console.log('get request for /');
+      res.send('this is /');
+  });
 
-	app.use('/data', express.static(__dirname + '/server/data'));
+  app.use('/data', express.static(__dirname + '/server/data'));
 
   //REST API. busController is a router to handle /api/bus
   app.use('/api/bus', busCtl.router);
 
   // socketIO for real time bus position
-	busCtl.busSocketIoSetup(io);
+  busCtl.busSocketIoSetup(io);
 
 
-	// listen for TERM signal .e.g. kill 
+  // listen for TERM signal .e.g. kill 
   process.on ('SIGTERM', gracefulShutdown);
 
-	// listen for INT signal e.g. Ctrl-C
-	process.on ('SIGINT', gracefulShutdown);   
+  // listen for INT signal e.g. Ctrl-C
+  process.on ('SIGINT', gracefulShutdown);   
 
   // shutdown webserver, then mongoDB
   process.on('exit', function () {
@@ -91,19 +92,19 @@ function startWebServer() {
   });
 
   // server start to receive incoming http request
-	server.listen(process.env.PORT || 3000 , function () {
-	    console.log('I\'m Listening on  port ...');
-	    console.log(process.env.PORT || 3000);
-	});
+  server.listen(process.env.PORT || 3000 , function () {
+      console.log('I\'m Listening on  port ...');
+      console.log(process.env.PORT || 3000);
+  });
 }
 
 // Use connect method to connect to the Server. 
 // db is a connection pool. Do not connect to db for each http request.
 // the whole application only connect to mongoDB once
 mongoClient.connect(url, function(err, db) {
-	console.log("Connected to mongoDb. url= " + url);
-	global.mongoDb = db;
+  console.log("Connected to mongoDb. url= " + url);
+  global.mongoDb = db;
 
   // start web server only if mongoDb connect success
-	startWebServer();
+  startWebServer();
 });
