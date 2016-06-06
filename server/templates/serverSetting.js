@@ -6,16 +6,16 @@ var cfg = {};
 cfg.mongoDbBusUrl = 'mongodb://localhost:27017/bus';
 // @endif
 // @if SERVER_ENV == 'TEST'
-console.log('Node server running in development environment.');
+console.log('Node server running in test environment.');
 cfg.mongoDbBusUrl = 'mongodb://localhost:27017/bus';
 // @endif
 // @if SERVER_ENV == 'PRODUCTION'
-console.log('Node server running in development environment.');
+console.log('Node server running in production environment.');
 cfg.mongoDbBusUrl = 'mongodb://nodejsclient:nodejsclient@ds052968.mlab.com:52968/WMillMongoDB';
 // @endif
 cfg.busRouteCollection = 'route';
 cfg.busPositionCollection = 'position';
 
-console.log('Node server running in development environment. mongoDbBusUrl= ' + cfg.mongoDbBusUrl);
+console.log('mongoDbBusUrl= ' + cfg.mongoDbBusUrl);
 
 module.exports = cfg;

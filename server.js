@@ -50,7 +50,7 @@ function startWebServer() {
   //AJAX requests to the nodejs server. The nodejs server needs to set the 
   //Access-Control-Allow-Origin: http://localhost:8100 so that the browser can allow the 
   //CORS request. Origin: true will set Access-Control-Allow-Origin to the origin in the request.
-	app.use(cors(corsOptions));
+  app.use(cors(corsOptions));
 
   // This does not printout the incoming request body. It prints a lot other info of the req.
   // app.use(function(req, res, next) {
