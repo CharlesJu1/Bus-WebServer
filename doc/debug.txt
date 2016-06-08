@@ -13,7 +13,11 @@ To access node.js console.log
       loggingEnabled: true
       logDirectory: iisnode
    In your browser, access the Kudu debug console for your app, which is at 
-   https://{appname}.scm.azurewebsites.net/DebugConsole, Navigate to D:\home\site\wwwroot\iisnode
+      https://{appname}.scm.azurewebsites.net/DebugConsole
+          Logfiles/W3SVCxxx folders are for failed reqeust traces
+          site\wwwroot\iisnode has node.js console.log outputs. Or in the CMD console, cd to D:\home\site\wwwroot\iisnode
+   To show node.js console.log
+       Go to http://buscoming.azurewebsites.net/iisnode/
 
 
 Debug your app with Node-Inspector
