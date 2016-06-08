@@ -1,0 +1,22 @@
+How to access/download Applicationhost.config
+    Login to the KUDU console for your Azure Web Site at https://<sitename>.scm.azurewebsites.net/DebugConsole
+
+Enable diagnostics logging for web apps in Azure App Service
+    To enable diagnostics in the Azure Portal, go to the blade for your web app and click Settings > Diagnostics logs.
+    Download logs
+        Go to the FTP site listed on the logs section of portal.azure.com using the FTP/deployment user name to download logs.
+    Streaming with Azure Command-Line Interface
+        azure site log tail webappname
+
+To access node.js console.log
+   Add the following lines in IISNode.yml
+      loggingEnabled: true
+      logDirectory: iisnode
+   In your browser, access the Kudu debug console for your app, which is at 
+   https://{appname}.scm.azurewebsites.net/DebugConsole, Navigate to D:\home\site\wwwroot\iisnode
+
+
+Debug your app with Node-Inspector
+    Add the following line in IISNode.yml
+       debuggingEnabled: true
+    In your browser, go to http://{appname}.azurewebsites.net/server.js/debug
