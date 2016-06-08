@@ -2,10 +2,11 @@
 'use strict';
 var cfg = {};
 
-cfg.mongoDbBusUrl = 'mongodb://localhost:27017/bus';
+console.log('Node server running in production environment.');
+cfg.mongoDbBusUrl = 'mongodb://nodejsclient:nodejsclient@ds052968.mlab.com:52968/WMillMongoDB';
 cfg.busRouteCollection = 'route';
 cfg.busPositionCollection = 'position';
 
-console.log('Node server running in development environment. mongoDbBusUrl= ' + cfg.mongoDbBusUrl);
+console.log('mongoDbBusUrl= ' + cfg.mongoDbBusUrl);
 
 module.exports = cfg;
