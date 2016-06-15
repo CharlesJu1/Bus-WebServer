@@ -1,0 +1,37 @@
+{
+  "config": {
+      "target": "http://localhost:3000",
+      "phases": [
+          {"duration": 10, "arrivalRate": 1},
+          {"duration": 10, "arrivalRate": 1, "rampTo": 5},
+          {"duration": 10, "arrivalRate": 5}
+      ],
+      "payload": {
+          "path": "position.csv",
+          "fields": ["lat","long","heading","speed"],
+          "order": "sequence"
+      }
+  },
+  "scenarios": [
+      {
+          "name": "upload position",
+          "flow": [
+              {"post": {
+                  "url": "/api/bus/position",
+                  "json": {"coords": {"lat": "{{ lat }}", "long": "{{ long }}"}, "heading": "{{ heading }}", "speed": "{{ speed }}"}
+              }},
+              {"think": 1}
+          ]
+      },
+      {
+          "name": "upload route",
+          "flow": [
+              {"post": {
+                  "url": "/api/bus/route",
+                  "json": {"rtDirection": {"fStop": "stop A", "tStop": "stop B"}, "stops": [], "path": []}
+              }},
+              {"think": 1}
+          ]
+      }
+  ]
+}

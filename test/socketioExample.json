@@ -1,0 +1,20 @@
+{
+  "config": {
+      "target": "http://localhost:3000/passenger",
+      "phases": [
+        {"duration": 10, "arrivalRate": 1}
+      ]
+  },
+  "scenarios": [
+    {
+      "engine": "socketio",
+      "flow": [
+        {"emit": { "channel": "register positionUpdate", "data": {"city":"zhuhai","line":"K4"}}},
+        {"think": 5},
+        {"emit": { "channel": "unregister positionUpdate", "data": {"city":"zhuhai","line":"K4"}}},
+        {"think": 5},
+        {"emit": { "channel": "disconnect", "data": {}}}
+      ]
+    }
+  ]
+}
